@@ -860,19 +860,15 @@
                 <h2 class="page-title">Order Your Cake</h2>
                 
                 <div class="order-container">
-                    <!-- FORM CONNECTED TO codegenius90@gmail.com -->
-                    <form action="https://formsubmit.co/codegenius90@gmail.com" method="POST" enctype="multipart/form-data" id="cakeOrderForm">
-                        <!-- FormSubmit Hidden Fields -->
-                        <input type="hidden" name="_subject" value="🎂 New Cake Order from Ana's Sweet Spot!">
-                        <input type="hidden" name="_template" value="table">
-                        <input type="hidden" name="_autoresponse" value="Thank you for your cake order at Ana's Sweet Spot! We'll contact you within 24 hours to confirm details and request the 50% deposit.">
-                        <input type="text" name="_honey" style="display:none">
-                        <input type="hidden" name="_captcha" value="false">
+                    <!-- FORM WITH YOUR FORMSPARK ID -->
+                    <form action="https://submit-form.com/form_v1_D6spZXL1hpnvhDZW6fmzn9W6" method="POST" enctype="multipart/form-data" id="cakeOrderForm">
+                        <!-- Formspark doesn't need hidden fields, but we'll keep them for organization -->
+                        <input type="hidden" name="form-name" value="Ana's Sweet Spot Order">
+                        <input type="hidden" name="subject" value="🎂 New Cake Order!">
                         
                         <!-- Hidden fields to store selections -->
                         <input type="hidden" name="Flavor" id="selectedFlavor">
                         <input type="hidden" name="Size" id="selectedSize">
-                        <input type="hidden" name="Order Completed" value="Yes">
                         
                         <div class="form-header">
                             <h2>Custom Cake Order</h2>
@@ -1025,7 +1021,8 @@
                 </div>
                 
                 <div style="color: #888; margin-top: 20px;">
-                    <p><i class="fas fa-phone" style="margin-right: 8px;"></i> (555) 123-4567</p>
+                    <!-- UPDATED PHONE NUMBER: 770-765-5783 -->
+                    <p><i class="fas fa-phone" style="margin-right: 8px;"></i> (770) 765-5783</p>
                     <p><i class="fas fa-clock" style="margin-right: 8px;"></i> Custom orders require 3-5 days notice</p>
                 </div>
                 
