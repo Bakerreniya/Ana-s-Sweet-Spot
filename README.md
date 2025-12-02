@@ -48,19 +48,35 @@
             padding: 0 20px;
         }
         
-        /* Background */
+        /* Background - UPDATED WITH NEW IMAGE AND MORE VISIBLE */
         .page-background {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('https://www.dropbox.com/scl/fi/atcjbrw6lr6yxk2a5dcjx/IMG_7156.jpeg?rlkey=xgzx1watpyq7e4ofcd8ybfe6o&st=5e7tsix4&raw=1');
+            background-image: url('https://www.dropbox.com/scl/fi/ofyspzth9gl99x2kk97bh/IMG_7155.jpeg?rlkey=dp20cws62yyci0jpsa65qwx0z&st=pbetxe8a&raw=1');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
-            opacity: 0.15;
+            opacity: 0.4;
             z-index: -1;
+            filter: brightness(1.05);
+        }
+        
+        /* Add overlay to make text more readable */
+        .content-overlay {
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Make hero section stand out more */
+        .hero {
+            background-color: rgba(255, 255, 255, 0.85);
+            border-radius: 20px;
+            margin: 20px;
+            padding: 60px 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         }
         
         /* Navigation */
@@ -153,11 +169,6 @@
         }
         
         /* Hero Section */
-        .hero {
-            text-align: center;
-            padding: 60px 0 100px;
-        }
-        
         .hero h1 {
             font-size: 4.5rem;
             margin-bottom: 20px;
@@ -356,7 +367,7 @@
         /* Policies Section */
         .policies-section {
             margin: 100px 0;
-            background-color: rgba(255, 255, 255, 0.7);
+            background-color: rgba(255, 255, 255, 0.9);
             border-radius: 20px;
             padding: 50px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
@@ -630,7 +641,7 @@
         
         /* Footer */
         footer {
-            background-color: rgba(255, 255, 255, 0.9);
+            background-color: rgba(255, 255, 255, 0.95);
             padding: 40px 0 20px;
             text-align: center;
             border-top: 1px solid rgba(232, 180, 188, 0.3);
@@ -709,6 +720,11 @@
             .policies-section {
                 padding: 30px;
             }
+            
+            .hero {
+                margin: 10px;
+                padding: 40px 20px;
+            }
         }
         
         @media (max-width: 480px) {
@@ -736,7 +752,7 @@
     </style>
 </head>
 <body>
-    <!-- Background -->
+    <!-- Background - UPDATED -->
     <div class="page-background"></div>
     
     <!-- Header -->
@@ -753,7 +769,7 @@
     </header>
     
     <!-- Page Container -->
-    <div class="page-container">
+    <div class="page-container content-overlay">
         <!-- Home Page (with Gallery & Policies) -->
         <div id="home" class="page active">
             <div class="hero">
@@ -860,15 +876,16 @@
                 <h2 class="page-title">Order Your Cake</h2>
                 
                 <div class="order-container">
-                    <!-- FORM WITH YOUR FORMSPARK ID -->
-                    <form action="https://submit-form.com/form_v1_D6spZXL1hpnvhDZW6fmzn9W6" method="POST" enctype="multipart/form-data" id="cakeOrderForm">
-                        <!-- Formspark doesn't need hidden fields, but we'll keep them for organization -->
-                        <input type="hidden" name="form-name" value="Ana's Sweet Spot Order">
-                        <input type="hidden" name="subject" value="🎂 New Cake Order!">
+                    <!-- FORM WITH GETFORM.IO ENDPOINT -->
+                    <form action="https://getform.io/f/azyqlnvb" method="POST" enctype="multipart/form-data" id="cakeOrderForm">
+                        <!-- Getform.io hidden fields for better organization -->
+                        <input type="hidden" name="_subject" value="🎂 New Cake Order - Ana's Sweet Spot">
+                        <input type="hidden" name="_template" value="table">
                         
                         <!-- Hidden fields to store selections -->
                         <input type="hidden" name="Flavor" id="selectedFlavor">
                         <input type="hidden" name="Size" id="selectedSize">
+                        <input type="hidden" name="Source" value="Website Order Form">
                         
                         <div class="form-header">
                             <h2>Custom Cake Order</h2>
@@ -1005,7 +1022,7 @@
             </div>
         </div>
     </div>
-    
+
     <!-- Footer -->
     <footer>
         <div class="container">
@@ -1021,7 +1038,6 @@
                 </div>
                 
                 <div style="color: #888; margin-top: 20px;">
-                    <!-- UPDATED PHONE NUMBER: 770-765-5783 -->
                     <p><i class="fas fa-phone" style="margin-right: 8px;"></i> (770) 765-5783</p>
                     <p><i class="fas fa-clock" style="margin-right: 8px;"></i> Custom orders require 3-5 days notice</p>
                 </div>
