@@ -1324,11 +1324,14 @@
                 <h2 class="page-title">Order Your Cake</h2>
                 
                 <div class="order-container">
-                    <!-- FORM WITH GETFORM.IO ENDPOINT -->
-                    <form action="https://getform.io/f/azyqlnvb" method="POST" enctype="multipart/form-data" id="cakeOrderForm">
+                    <!-- FORM WITH GETFORM.IO ENDPOINT - UPDATED -->
+                    <form action="https://getform.io/f/azyqlqvb" method="POST" enctype="multipart/form-data" id="cakeOrderForm">
                         <!-- Getform.io hidden fields for better organization -->
                         <input type="hidden" name="_subject" value="🎂 New Cake Order - Ana's Sweet Spot">
                         <input type="hidden" name="_template" value="table">
+                        <!-- Try adding email fields that GetForm might recognize -->
+                        <input type="hidden" name="_replyto" value="anasweets1@gmail.com">
+                        <input type="hidden" name="_to" value="anasweets1@gmail.com">
                         
                         <!-- Hidden fields to store selections -->
                         <input type="hidden" name="Flavor" id="selectedFlavor">
