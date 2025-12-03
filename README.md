@@ -3,32 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ana's Sweet Spot | Artisan Bakery - Dark</title>
+    <title>Ana's Sweet Spot | Artisan Bakery</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Quicksand:wght@300;400;500&display=swap" rel="stylesheet">
+    <!-- Garamond-style font for Apple aesthetic -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Dark Theme Base Styles */
+        /* Base Styles - Theme Variables */
         :root {
-            --dark-bg: #121212;
-            --darker-bg: #0a0a0a;
-            --card-bg: #1e1e1e;
-            --card-border: #333;
-            --text-primary: #f5f5f5;
-            --text-secondary: #b0b0b0;
-            --text-accent: #d4af37;
-            --soft-pink: #ff7eb3;
+            /* Light Theme Colors - Apple-inspired */
+            --light-bg: #fcfcfc;
+            --light-card: #ffffff;
+            --light-header: rgba(255, 255, 255, 0.92);
+            --light-text: #333333;
+            --light-text-secondary: #666666;
+            --light-border: rgba(229, 229, 234, 0.8);
+            --light-shadow: rgba(0, 0, 0, 0.08);
+            
+            /* Dark Theme Colors - Apple-inspired */
+            --dark-bg: #000000;
+            --dark-card: #1c1c1e;
+            --dark-header: rgba(28, 28, 30, 0.92);
+            --dark-text: #f5f5f7;
+            --dark-text-secondary: #98989d;
+            --dark-border: #38383a;
+            --dark-shadow: rgba(0, 0, 0, 0.3);
+            
+            /* Brand Colors (Apple-inspired pastel) */
+            --soft-pink: #ffdde1;
             --dusty-rose: #e8b4bc;
             --deep-rose: #d48a97;
-            --cream: #2a2a2a;
-            --chocolate: #c19a6b;
+            --cream: #fefefe;
+            --chocolate: #1d1d1f;
             --gold: #d4af37;
-            --light-gold: #f4e4b5;
-            --accent-dark: #8b5a2b;
-            --accent-light: #e8b4bc;
-            --shadow-color: rgba(0, 0, 0, 0.5);
-            --shadow-light: rgba(0, 0, 0, 0.3);
+            --light-gold: #f5f0e1;
+            --accent-dark: #2c2c2e;
         }
         
         * {
@@ -37,18 +47,54 @@
             box-sizing: border-box;
         }
         
+        /* Apple Garamond Font Styling */
         body {
-            font-family: 'Quicksand', sans-serif;
-            font-weight: 300;
-            background-color: var(--dark-bg);
-            color: var(--text-primary);
-            line-height: 1.7;
+            font-family: 'Cormorant Garamond', Garamond, 'Times New Roman', serif;
+            font-weight: 400;
+            line-height: 1.6;
+            letter-spacing: -0.01em;
             overflow-x: hidden;
+            transition: all 0.3s ease;
         }
         
-        h1, h2, h3, .logo {
-            font-family: 'Dancing Script', cursive;
+        /* Apple-style typography hierarchy */
+        h1, h2, h3, h4, .logo {
+            font-family: 'Cormorant Garamond', Garamond, 'Times New Roman', serif;
             font-weight: 600;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+        }
+        
+        /* Body text for paragraphs, lists, etc. */
+        p, li, .form-control, .btn, nav a, .theme-text {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-weight: 400;
+            letter-spacing: -0.01em;
+        }
+        
+        /* Light Theme (Default) */
+        body.light-theme {
+            background-color: var(--light-bg);
+            color: var(--light-text);
+        }
+        
+        /* Dark Theme */
+        body.dark-theme {
+            background-color: var(--dark-bg);
+            color: var(--dark-text);
+        }
+        
+        .light-theme h1, 
+        .light-theme h2, 
+        .light-theme h3, 
+        .light-theme .logo {
+            color: var(--chocolate);
+        }
+        
+        .dark-theme h1, 
+        .dark-theme h2, 
+        .dark-theme h3, 
+        .dark-theme .logo {
             color: var(--gold);
         }
         
@@ -59,49 +105,78 @@
             padding: 0 20px;
         }
         
-        /* Background - Darker Version */
+        /* Background */
         .page-background {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: 
-                linear-gradient(rgba(10, 10, 10, 0.85), rgba(10, 10, 10, 0.9)),
-                url('https://www.dropbox.com/scl/fi/ofyspzth9gl99x2kk97bh/IMG_7155.jpeg?rlkey=dp20cws62yyci0jpsa65qwx0z&st=pbetxe8a&raw=1');
+            background-image: url('https://www.dropbox.com/scl/fi/ofyspzth9gl99x2kk97bh/IMG_7155.jpeg?rlkey=dp20cws62yyci0jpsa65qwx0z&st=pbetxe8a&raw=1');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
             z-index: -1;
         }
         
-        /* Add overlay to make text more readable */
+        .light-theme .page-background {
+            opacity: 0.4;
+            filter: brightness(1.05);
+        }
+        
+        .dark-theme .page-background {
+            opacity: 0.2;
+            filter: brightness(0.7);
+        }
+        
         .content-overlay {
             position: relative;
             z-index: 1;
         }
         
-        /* Make hero section stand out more */
+        /* Hero Section */
         .hero {
-            background-color: rgba(30, 30, 30, 0.85);
-            border-radius: 20px;
+            border-radius: 12px;
             margin: 20px;
-            padding: 60px 20px;
-            box-shadow: 0 10px 30px var(--shadow-color);
-            border: 1px solid var(--card-border);
+            padding: 80px 20px;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .light-theme .hero {
+            background-color: rgba(255, 255, 255, 0.82);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 8px 32px var(--light-shadow);
+            border: 1px solid var(--light-border);
+        }
+        
+        .dark-theme .hero {
+            background-color: rgba(28, 28, 30, 0.82);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 8px 32px var(--dark-shadow);
+            border: 1px solid var(--dark-border);
         }
         
         /* Navigation */
         header {
-            background-color: rgba(18, 18, 18, 0.95);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             position: fixed;
             top: 0;
             width: 100%;
             z-index: 1000;
             padding: 15px 0;
-            border-bottom: 1px solid var(--card-border);
+            transition: all 0.3s ease;
+        }
+        
+        .light-theme header {
+            background-color: rgba(255, 255, 255, 0.72);
+            border-bottom: 1px solid var(--light-border);
+        }
+        
+        .dark-theme header {
+            background-color: rgba(28, 28, 30, 0.72);
+            border-bottom: 1px solid var(--dark-border);
         }
         
         .header-content {
@@ -112,50 +187,78 @@
         
         .logo {
             font-size: 2.8rem;
+            font-weight: 600;
+            letter-spacing: -0.03em;
+        }
+        
+        .light-theme .logo {
+            color: var(--chocolate);
+        }
+        
+        .dark-theme .logo {
             color: var(--gold);
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
         
         .logo span {
             color: var(--deep-rose);
+            font-weight: 600;
         }
         
         nav ul {
             display: flex;
             list-style: none;
-            gap: 30px;
+            gap: 25px;
         }
         
         nav a {
             text-decoration: none;
-            color: var(--text-primary);
-            font-family: 'Playfair Display', serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             font-weight: 500;
-            font-size: 1.1rem;
-            padding: 8px 15px;
+            font-size: 1rem;
+            padding: 8px 16px;
             border-radius: 20px;
             transition: all 0.3s ease;
             position: relative;
         }
         
-        nav a:hover {
+        .light-theme nav a {
+            color: var(--light-text);
+        }
+        
+        .dark-theme nav a {
+            color: var(--dark-text);
+        }
+        
+        .light-theme nav a:hover {
             color: var(--deep-rose);
-            background-color: rgba(212, 138, 151, 0.15);
+            background-color: rgba(232, 180, 188, 0.08);
+        }
+        
+        .dark-theme nav a:hover {
+            color: var(--deep-rose);
+            background-color: rgba(212, 138, 151, 0.12);
         }
         
         nav a.active {
             color: var(--deep-rose);
-            background-color: rgba(212, 138, 151, 0.2);
+        }
+        
+        .light-theme nav a.active {
+            background-color: rgba(232, 180, 188, 0.1);
+        }
+        
+        .dark-theme nav a.active {
+            background-color: rgba(212, 138, 151, 0.15);
         }
         
         nav a.active:after {
             content: '';
             position: absolute;
-            bottom: -5px;
+            bottom: -8px;
             left: 50%;
             transform: translateX(-50%);
-            width: 5px;
-            height: 5px;
+            width: 3px;
+            height: 3px;
             background-color: var(--deep-rose);
             border-radius: 50%;
         }
@@ -177,56 +280,73 @@
         }
         
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         
         /* Hero Section */
         .hero h1 {
-            font-size: 4.5rem;
+            font-size: 4rem;
             margin-bottom: 20px;
+            font-weight: 600;
+            letter-spacing: -0.03em;
+        }
+        
+        .light-theme .hero h1 {
+            color: var(--chocolate);
+        }
+        
+        .dark-theme .hero h1 {
             color: var(--gold);
-            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
         }
         
         .hero p {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             max-width: 700px;
             margin: 0 auto 40px;
-            color: var(--text-secondary);
-            font-family: 'Playfair Display', serif;
+            font-family: 'Cormorant Garamond', Garamond, serif;
             font-style: italic;
+            font-weight: 300;
+        }
+        
+        .light-theme .hero p {
+            color: var(--light-text-secondary);
+        }
+        
+        .dark-theme .hero p {
+            color: var(--dark-text-secondary);
         }
         
         .cta-button {
             display: inline-block;
-            background: linear-gradient(135deg, var(--deep-rose), var(--accent-dark));
+            background: linear-gradient(135deg, var(--deep-rose), var(--dusty-rose));
             color: white;
-            padding: 16px 45px;
-            border-radius: 30px;
+            padding: 16px 42px;
+            border-radius: 24px;
             text-decoration: none;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: 500;
-            box-shadow: 0 6px 20px rgba(212, 138, 151, 0.3);
+            font-family: 'Inter', -apple-system, sans-serif;
+            box-shadow: 0 4px 20px rgba(212, 138, 151, 0.2);
             transition: all 0.3s ease;
             border: none;
             cursor: pointer;
-            font-family: 'Quicksand', sans-serif;
+            letter-spacing: -0.01em;
         }
         
         .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(212, 138, 151, 0.5);
-            background: linear-gradient(135deg, var(--dusty-rose), var(--deep-rose));
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(212, 138, 151, 0.3);
         }
         
         /* Menu Page */
         .page-title {
             text-align: center;
-            font-size: 3.5rem;
+            font-size: 3.2rem;
             margin-bottom: 50px;
             position: relative;
             padding-bottom: 20px;
+            font-weight: 600;
         }
         
         .page-title:after {
@@ -235,9 +355,9 @@
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: 100px;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, var(--deep-rose), transparent);
+            width: 80px;
+            height: 1px;
+            background: var(--deep-rose);
         }
         
         .flavors-section {
@@ -247,22 +367,38 @@
         .flavors-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 30px;
+            gap: 25px;
             margin-top: 40px;
         }
         
         .flavor-card {
-            background: var(--card-bg);
-            border-radius: 15px;
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 10px 30px var(--shadow-color);
-            transition: all 0.4s ease;
-            border: 1px solid var(--card-border);
+            transition: all 0.3s ease;
+        }
+        
+        .light-theme .flavor-card {
+            background: var(--light-card);
+            box-shadow: 0 4px 24px var(--light-shadow);
+            border: 1px solid var(--light-border);
+        }
+        
+        .dark-theme .flavor-card {
+            background: var(--dark-card);
+            box-shadow: 0 4px 24px var(--dark-shadow);
+            border: 1px solid var(--dark-border);
         }
         
         .flavor-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+            transform: translateY(-8px);
+        }
+        
+        .light-theme .flavor-card:hover {
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+        }
+        
+        .dark-theme .flavor-card:hover {
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
             border-color: var(--deep-rose);
         }
         
@@ -271,13 +407,24 @@
         }
         
         .flavor-content h3 {
-            font-size: 1.8rem;
-            margin-bottom: 10px;
+            font-size: 1.6rem;
+            margin-bottom: 12px;
             color: var(--deep-rose);
+            font-weight: 600;
         }
         
         .flavor-content p {
-            color: var(--text-secondary);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        
+        .light-theme .flavor-content p {
+            color: var(--light-text);
+        }
+        
+        .dark-theme .flavor-content p {
+            color: var(--dark-text-secondary);
         }
         
         /* Pricing Section */
@@ -290,25 +437,30 @@
         }
         
         .pricing-category h3 {
-            font-size: 2.2rem;
+            font-size: 2rem;
             margin-bottom: 30px;
             text-align: center;
+            font-weight: 600;
+        }
+        
+        .light-theme .pricing-category h3 {
+            color: var(--chocolate);
+        }
+        
+        .dark-theme .pricing-category h3 {
             color: var(--chocolate);
         }
         
         .pricing-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 25px;
+            gap: 22px;
         }
         
         .price-card {
-            background: var(--card-bg);
-            border-radius: 15px;
-            padding: 30px 25px;
+            border-radius: 12px;
+            padding: 28px 22px;
             text-align: center;
-            box-shadow: 0 8px 25px var(--shadow-color);
-            border: 1px solid var(--card-border);
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
@@ -320,39 +472,71 @@
             top: 0;
             left: 0;
             right: 0;
-            height: 4px;
+            height: 2px;
             background: linear-gradient(90deg, var(--dusty-rose), var(--gold));
         }
         
+        .light-theme .price-card {
+            background: var(--light-card);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+        }
+        
+        .dark-theme .price-card {
+            background: var(--dark-card);
+            box-shadow: 0 4px 20px var(--dark-shadow);
+            border: 1px solid var(--dark-border);
+        }
+        
         .price-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+            transform: translateY(-4px);
+        }
+        
+        .light-theme .price-card:hover {
+            box-shadow: 0 8px 28px rgba(0, 0, 0, 0.08);
+        }
+        
+        .dark-theme .price-card:hover {
+            box-shadow: 0 8px 28px rgba(0, 0, 0, 0.4);
             border-color: var(--gold);
         }
         
         .price-card h4 {
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             margin-bottom: 15px;
-            color: var(--text-primary);
-            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+        }
+        
+        .light-theme .price-card h4 {
+            color: var(--chocolate);
+        }
+        
+        .dark-theme .price-card h4 {
+            color: var(--dark-text);
         }
         
         .price {
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             color: var(--deep-rose);
-            font-weight: bold;
+            font-weight: 600;
             margin: 15px 0;
-            font-family: 'Playfair Display', serif;
+            font-family: 'Cormorant Garamond', serif;
         }
         
         .price-image {
-            height: 180px;
+            height: 160px;
             background-size: cover;
             background-position: center;
-            border-radius: 10px;
+            border-radius: 8px;
             margin-top: 15px;
-            border: 2px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 4px 15px var(--shadow-color);
+        }
+        
+        .light-theme .price-image {
+            border: 1px solid var(--light-border);
+        }
+        
+        .dark-theme .price-image {
+            border: 1px solid var(--dark-border);
         }
         
         /* Gallery Section */
@@ -363,52 +547,71 @@
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 25px;
+            gap: 22px;
             margin-top: 40px;
         }
         
         .gallery-item {
-            border-radius: 15px;
+            border-radius: 12px;
             overflow: hidden;
-            height: 300px;
+            height: 280px;
             background-size: cover;
             background-position: center;
-            box-shadow: 0 8px 25px var(--shadow-color);
-            transition: all 0.4s ease;
+            transition: all 0.3s ease;
             position: relative;
             cursor: pointer;
-            border: 2px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .dark-theme .gallery-item {
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
         
         .gallery-item:hover {
-            transform: scale(1.03);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
+            transform: scale(1.02);
+        }
+        
+        .dark-theme .gallery-item:hover {
             border-color: var(--deep-rose);
         }
         
         /* Policies Section */
         .policies-section {
             margin: 100px 0;
-            background-color: var(--card-bg);
-            border-radius: 20px;
+            border-radius: 12px;
             padding: 50px;
-            box-shadow: 0 10px 30px var(--shadow-color);
-            border: 1px solid var(--card-border);
+            backdrop-filter: blur(20px);
+        }
+        
+        .light-theme .policies-section {
+            background-color: rgba(255, 255, 255, 0.72);
+            border: 1px solid var(--light-border);
+        }
+        
+        .dark-theme .policies-section {
+            background-color: rgba(28, 28, 30, 0.72);
+            border: 1px solid var(--dark-border);
         }
         
         .policy-box {
-            background: rgba(40, 40, 40, 0.7);
-            border-radius: 15px;
+            border-radius: 12px;
             padding: 30px;
             margin: 30px 0;
-            border-left: 5px solid var(--deep-rose);
-            box-shadow: 0 5px 20px var(--shadow-light);
+            border-left: 3px solid var(--deep-rose);
+        }
+        
+        .light-theme .policy-box {
+            background: var(--light-card);
+        }
+        
+        .dark-theme .policy-box {
+            background: rgba(40, 40, 40, 0.6);
         }
         
         .policy-box h3 {
             color: var(--deep-rose);
             margin-bottom: 20px;
-            font-size: 1.8rem;
+            font-size: 1.6rem;
+            font-weight: 600;
         }
         
         .policy-box ul {
@@ -416,33 +619,60 @@
             margin-bottom: 15px;
         }
         
+        .light-theme .policy-box li {
+            color: var(--light-text);
+        }
+        
+        .dark-theme .policy-box li {
+            color: var(--dark-text-secondary);
+        }
+        
         .policy-box li {
             margin-bottom: 12px;
-            color: var(--text-secondary);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
         }
         
         .warning {
-            background-color: rgba(255, 193, 7, 0.1);
-            border-left: 5px solid #ffc107;
-            padding: 20px;
+            padding: 18px;
             margin: 20px 0;
-            border-radius: 0 10px 10px 0;
-            color: #ffd54f;
+            border-radius: 8px;
+        }
+        
+        .light-theme .warning {
+            background-color: rgba(255, 193, 7, 0.08);
+            border-left: 3px solid #ffc107;
+            color: var(--light-text);
+        }
+        
+        .dark-theme .warning {
+            background-color: rgba(255, 193, 7, 0.08);
+            border-left: 3px solid #ffc107;
+            color: var(--dark-text);
         }
         
         /* Order Form - Multi Step */
         .order-container {
             max-width: 800px;
             margin: 0 auto;
-            background: var(--card-bg);
-            border-radius: 20px;
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 15px 40px var(--shadow-color);
-            border: 1px solid var(--card-border);
+        }
+        
+        .light-theme .order-container {
+            background: var(--light-card);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+            border: 1px solid var(--light-border);
+        }
+        
+        .dark-theme .order-container {
+            background: var(--dark-card);
+            box-shadow: 0 8px 32px var(--dark-shadow);
+            border: 1px solid var(--dark-border);
         }
         
         .form-header {
-            background: linear-gradient(135deg, var(--accent-dark), var(--deep-rose));
+            background: linear-gradient(135deg, var(--deep-rose), var(--dusty-rose));
             color: white;
             padding: 25px;
             text-align: center;
@@ -450,39 +680,41 @@
         
         .form-header h2 {
             color: white;
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             margin-bottom: 10px;
+            font-weight: 600;
         }
         
         .step-indicator {
             display: flex;
             justify-content: center;
             margin-top: 20px;
-            gap: 30px;
+            gap: 25px;
         }
         
         .step {
-            width: 35px;
-            height: 35px;
+            width: 32px;
+            height: 32px;
             border-radius: 50%;
             background-color: rgba(255, 255, 255, 0.2);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: bold;
+            font-weight: 500;
             transition: all 0.3s ease;
             color: white;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
         }
         
         .step.active {
             background-color: white;
             color: var(--deep-rose);
-            transform: scale(1.1);
         }
         
         .step.completed {
             background-color: var(--light-gold);
-            color: var(--darker-bg);
+            color: var(--chocolate);
         }
         
         .form-body {
@@ -491,7 +723,7 @@
         
         .form-step {
             display: none;
-            animation: fadeIn 0.5s ease;
+            animation: fadeIn 0.4s ease;
         }
         
         .form-step.active {
@@ -499,68 +731,109 @@
         }
         
         .step-title {
-            font-size: 2rem;
+            font-size: 1.8rem;
             margin-bottom: 25px;
-            color: var(--gold);
             text-align: center;
-            font-family: 'Dancing Script', cursive;
+            font-weight: 600;
+        }
+        
+        .light-theme .step-title {
+            color: var(--chocolate);
+        }
+        
+        .dark-theme .step-title {
+            color: var(--gold);
         }
         
         .flavor-options, .size-options {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            gap: 20px;
+            gap: 18px;
             margin-top: 20px;
         }
         
         .option-card {
-            border: 2px solid var(--card-border);
-            border-radius: 12px;
+            border-radius: 10px;
             padding: 20px;
             cursor: pointer;
             transition: all 0.3s ease;
             text-align: center;
-            background: rgba(40, 40, 40, 0.5);
-            color: var(--text-secondary);
         }
         
-        .option-card:hover {
+        .light-theme .option-card {
+            border: 1px solid var(--light-border);
+            color: var(--light-text);
+        }
+        
+        .dark-theme .option-card {
+            border: 1px solid var(--dark-border);
+            background: rgba(40, 40, 40, 0.5);
+            color: var(--dark-text-secondary);
+        }
+        
+        .light-theme .option-card:hover {
             border-color: var(--dusty-rose);
-            background-color: rgba(232, 180, 188, 0.1);
-            color: var(--text-primary);
+            background-color: rgba(232, 180, 188, 0.03);
+        }
+        
+        .dark-theme .option-card:hover {
+            border-color: var(--dusty-rose);
+            background-color: rgba(232, 180, 188, 0.08);
+            color: var(--dark-text);
         }
         
         .option-card.selected {
             border-color: var(--deep-rose);
-            background-color: rgba(232, 180, 188, 0.15);
-            box-shadow: 0 5px 15px rgba(212, 138, 151, 0.2);
-            color: var(--text-primary);
+        }
+        
+        .light-theme .option-card.selected {
+            background-color: rgba(232, 180, 188, 0.06);
+        }
+        
+        .dark-theme .option-card.selected {
+            background-color: rgba(232, 180, 188, 0.12);
+            color: var(--dark-text);
         }
         
         .option-card h4 {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        .light-theme .option-card h4 {
+            color: var(--chocolate);
+        }
+        
+        .dark-theme .option-card h4 {
             color: var(--chocolate);
         }
         
         .upload-area {
-            border: 2px dashed var(--dusty-rose);
-            border-radius: 15px;
+            border: 1px dashed var(--dusty-rose);
+            border-radius: 12px;
             padding: 40px 20px;
             text-align: center;
             margin: 30px 0;
             cursor: pointer;
             transition: all 0.3s ease;
+        }
+        
+        .light-theme .upload-area {
+            background: rgba(255, 255, 255, 0.5);
+        }
+        
+        .dark-theme .upload-area {
             background: rgba(40, 40, 40, 0.3);
         }
         
         .upload-area:hover {
             border-color: var(--deep-rose);
-            background-color: rgba(232, 180, 188, 0.1);
+            background-color: rgba(232, 180, 188, 0.03);
         }
         
         .upload-icon {
-            font-size: 3rem;
+            font-size: 2.5rem;
             color: var(--dusty-rose);
             margin-bottom: 15px;
         }
@@ -571,26 +844,36 @@
             color: var(--deep-rose);
             text-decoration: underline;
             cursor: pointer;
-            font-size: 1rem;
+            font-size: 0.95rem;
             margin-top: 15px;
-            font-family: 'Quicksand', sans-serif;
+            font-family: 'Inter', sans-serif;
         }
         
         .terms-box {
-            border: 1px solid rgba(232, 180, 188, 0.3);
-            border-radius: 12px;
-            padding: 25px;
+            border-radius: 10px;
+            padding: 22px;
             margin: 30px 0;
-            max-height: 300px;
+            max-height: 280px;
             overflow-y: auto;
-            background-color: rgba(30, 30, 30, 0.8);
-            color: var(--text-secondary);
+        }
+        
+        .light-theme .terms-box {
+            border: 1px solid rgba(232, 180, 188, 0.3);
+            background-color: rgba(250, 250, 250, 0.5);
+            color: var(--light-text);
+        }
+        
+        .dark-theme .terms-box {
+            border: 1px solid rgba(232, 180, 188, 0.2);
+            background-color: rgba(30, 30, 30, 0.6);
+            color: var(--dark-text-secondary);
         }
         
         .terms-box h4 {
             color: var(--deep-rose);
             margin-bottom: 15px;
-            font-size: 1.3rem;
+            font-size: 1.2rem;
+            font-weight: 600;
         }
         
         .terms-box ul {
@@ -600,6 +883,8 @@
         
         .terms-box li {
             margin-bottom: 10px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
         }
         
         .checkbox-group {
@@ -607,27 +892,42 @@
             align-items: center;
             gap: 10px;
             margin-top: 20px;
-            color: var(--text-secondary);
+        }
+        
+        .light-theme .checkbox-group {
+            color: var(--light-text);
+        }
+        
+        .dark-theme .checkbox-group {
+            color: var(--dark-text-secondary);
         }
         
         .form-control {
             width: 100%;
-            padding: 15px;
-            border: 1px solid var(--card-border);
-            border-radius: 10px;
-            font-size: 1rem;
-            font-family: 'Quicksand', sans-serif;
+            padding: 14px;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-family: 'Inter', sans-serif;
             margin-bottom: 20px;
             transition: all 0.3s ease;
+            letter-spacing: -0.01em;
+        }
+        
+        .light-theme .form-control {
+            border: 1px solid var(--light-border);
+            background-color: white;
+            color: var(--light-text);
+        }
+        
+        .dark-theme .form-control {
+            border: 1px solid var(--dark-border);
             background-color: rgba(40, 40, 40, 0.7);
-            color: var(--text-primary);
+            color: var(--dark-text);
         }
         
         .form-control:focus {
             outline: none;
             border-color: var(--deep-rose);
-            box-shadow: 0 0 0 3px rgba(212, 138, 151, 0.2);
-            background-color: rgba(50, 50, 50, 0.7);
         }
         
         .form-navigation {
@@ -635,39 +935,58 @@
             justify-content: space-between;
             margin-top: 40px;
             padding-top: 30px;
-            border-top: 1px solid var(--card-border);
+        }
+        
+        .light-theme .form-navigation {
+            border-top: 1px solid var(--light-border);
+        }
+        
+        .dark-theme .form-navigation {
+            border-top: 1px solid var(--dark-border);
         }
         
         .btn {
-            padding: 12px 30px;
-            border-radius: 25px;
-            font-size: 1rem;
+            padding: 12px 28px;
+            border-radius: 20px;
+            font-size: 0.95rem;
             font-weight: 500;
             cursor: pointer;
             transition: all 0.3s ease;
-            font-family: 'Quicksand', sans-serif;
+            font-family: 'Inter', sans-serif;
             border: none;
+            letter-spacing: -0.01em;
         }
         
         .btn-prev {
-            background-color: rgba(40, 40, 40, 0.8);
             color: var(--deep-rose);
-            border: 1px solid var(--card-border);
+        }
+        
+        .light-theme .btn-prev {
+            background-color: white;
+            border: 1px solid var(--light-border);
+        }
+        
+        .dark-theme .btn-prev {
+            background-color: rgba(40, 40, 40, 0.8);
+            border: 1px solid var(--dark-border);
         }
         
         .btn-next, .btn-submit {
-            background: linear-gradient(135deg, var(--deep-rose), var(--accent-dark));
+            background: linear-gradient(135deg, var(--deep-rose), var(--dusty-rose));
             color: white;
         }
         
-        .btn-prev:hover {
-            background-color: rgba(232, 180, 188, 0.2);
+        .light-theme .btn-prev:hover {
+            background-color: rgba(232, 180, 188, 0.08);
+        }
+        
+        .dark-theme .btn-prev:hover {
+            background-color: rgba(232, 180, 188, 0.15);
             border-color: var(--dusty-rose);
         }
         
         .btn-next:hover, .btn-submit:hover {
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(212, 138, 151, 0.4);
         }
         
         .btn:disabled {
@@ -678,10 +997,18 @@
         
         /* Footer */
         footer {
-            background-color: rgba(18, 18, 18, 0.95);
             padding: 40px 0 20px;
             text-align: center;
-            border-top: 1px solid var(--card-border);
+        }
+        
+        .light-theme footer {
+            background-color: var(--light-bg);
+            border-top: 1px solid var(--light-border);
+        }
+        
+        .dark-theme footer {
+            background-color: var(--dark-bg);
+            border-top: 1px solid var(--dark-border);
         }
         
         .footer-content {
@@ -690,9 +1017,17 @@
         }
         
         .footer-logo {
-            font-size: 2.5rem;
-            color: var(--gold);
+            font-size: 2.2rem;
             margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        .light-theme .footer-logo {
+            color: var(--deep-rose);
+        }
+        
+        .dark-theme .footer-logo {
+            color: var(--gold);
         }
         
         .social-icons {
@@ -703,22 +1038,37 @@
         }
         
         .social-icons a {
-            color: var(--text-primary);
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             transition: all 0.3s ease;
+        }
+        
+        .light-theme .social-icons a {
+            color: var(--chocolate);
+        }
+        
+        .dark-theme .social-icons a {
+            color: var(--dark-text);
         }
         
         .social-icons a:hover {
             color: var(--deep-rose);
-            transform: translateY(-3px);
+            transform: translateY(-2px);
         }
         
         .copyright {
             margin-top: 30px;
             padding-top: 20px;
-            border-top: 1px solid var(--card-border);
-            color: var(--text-secondary);
-            font-size: 0.9rem;
+            font-size: 0.85rem;
+        }
+        
+        .light-theme .copyright {
+            border-top: 1px solid var(--light-border);
+            color: #888;
+        }
+        
+        .dark-theme .copyright {
+            border-top: 1px solid var(--dark-border);
+            color: var(--dark-text-secondary);
         }
         
         /* Theme Toggle Button */
@@ -726,27 +1076,43 @@
             position: fixed;
             bottom: 20px;
             right: 20px;
-            width: 50px;
-            height: 50px;
-            background-color: var(--card-bg);
+            width: 48px;
+            height: 48px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            box-shadow: 0 4px 15px var(--shadow-color);
             z-index: 1001;
-            border: 1px solid var(--card-border);
             transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        
+        .light-theme .theme-toggle {
+            background-color: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            border: 1px solid var(--light-border);
+        }
+        
+        .dark-theme .theme-toggle {
+            background-color: rgba(40, 40, 40, 0.8);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            border: 1px solid var(--dark-border);
         }
         
         .theme-toggle:hover {
-            transform: scale(1.1);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+            transform: scale(1.08);
         }
         
         .theme-toggle i {
-            font-size: 1.5rem;
+            font-size: 1.3rem;
+        }
+        
+        .light-theme .theme-toggle i {
+            color: var(--chocolate);
+        }
+        
+        .dark-theme .theme-toggle i {
             color: var(--gold);
         }
         
@@ -758,17 +1124,17 @@
             }
             
             nav ul {
-                gap: 15px;
+                gap: 12px;
                 flex-wrap: wrap;
                 justify-content: center;
             }
             
             .hero h1 {
-                font-size: 3.2rem;
+                font-size: 2.8rem;
             }
             
             .page-title {
-                font-size: 2.8rem;
+                font-size: 2.4rem;
             }
             
             .form-body {
@@ -789,36 +1155,47 @@
             
             .hero {
                 margin: 10px;
-                padding: 40px 20px;
+                padding: 60px 20px;
+            }
+            
+            .logo {
+                font-size: 2.4rem;
             }
         }
         
         @media (max-width: 480px) {
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 2.2rem;
             }
             
             .logo {
-                font-size: 2.2rem;
+                font-size: 2rem;
             }
             
             .page-title {
-                font-size: 2.2rem;
+                font-size: 2rem;
             }
             
             .form-navigation {
                 flex-direction: column;
-                gap: 15px;
+                gap: 12px;
             }
             
             .btn {
                 width: 100%;
             }
+            
+            .theme-toggle {
+                bottom: 15px;
+                right: 15px;
+                width: 42px;
+                height: 42px;
+            }
         }
     </style>
 </head>
-<body>
-    <!-- Background - Dark Theme -->
+<body class="light-theme">
+    <!-- Background -->
     <div class="page-background"></div>
     
     <!-- Theme Toggle -->
@@ -854,22 +1231,22 @@
             <div class="container">
                 <!-- Why Choose Us -->
                 <div style="text-align: center; margin-top: 60px;">
-                    <h2 style="font-size: 2.8rem; margin-bottom: 30px;">Why Choose Us</h2>
+                    <h2 style="font-size: 2.4rem; margin-bottom: 30px; font-weight: 600;">Why Choose Us</h2>
                     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-top: 40px;">
                         <div>
-                            <div style="font-size: 3rem; color: var(--deep-rose); margin-bottom: 15px;">🎂</div>
-                            <h3 style="font-size: 1.8rem; color: var(--gold);">Custom Designs</h3>
-                            <p style="color: var(--text-secondary);">Each cake is uniquely crafted to match your vision and occasion.</p>
+                            <div style="font-size: 2.5rem; color: var(--deep-rose); margin-bottom: 15px;">🎂</div>
+                            <h3 style="font-size: 1.6rem; font-weight: 600;">Custom Designs</h3>
+                            <p class="theme-text">Each cake is uniquely crafted to match your vision and occasion.</p>
                         </div>
                         <div>
-                            <div style="font-size: 3rem; color: var(--deep-rose); margin-bottom: 15px;">👩‍🍳</div>
-                            <h3 style="font-size: 1.8rem; color: var(--gold);">Artisan Quality</h3>
-                            <p style="color: var(--text-secondary);">Made from scratch with premium ingredients and attention to detail.</p>
+                            <div style="font-size: 2.5rem; color: var(--deep-rose); margin-bottom: 15px;">👩‍🍳</div>
+                            <h3 style="font-size: 1.6rem; font-weight: 600;">Artisan Quality</h3>
+                            <p class="theme-text">Made from scratch with premium ingredients and attention to detail.</p>
                         </div>
                         <div>
-                            <div style="font-size: 3rem; color: var(--deep-rose); margin-bottom: 15px;">💝</div>
-                            <h3 style="font-size: 1.8rem; color: var(--gold);">Made with Love</h3>
-                            <p style="color: var(--text-secondary);">Every creation is infused with care and passion for the craft.</p>
+                            <div style="font-size: 2.5rem; color: var(--deep-rose); margin-bottom: 15px;">💝</div>
+                            <h3 style="font-size: 1.6rem; font-weight: 600;">Made with Love</h3>
+                            <p class="theme-text">Every creation is infused with care and passion for the craft.</p>
                         </div>
                     </div>
                 </div>
@@ -904,7 +1281,7 @@
                 <!-- Gallery Section -->
                 <div class="gallery-section">
                     <h2 class="page-title">Our Gallery</h2>
-                    <p style="text-align: center; font-size: 1.2rem; max-width: 800px; margin: 0 auto 50px; color: var(--text-secondary); font-family: 'Playfair Display', serif;">
+                    <p style="text-align: center; font-size: 1.1rem; max-width: 800px; margin: 0 auto 50px; font-family: 'Cormorant Garamond', serif;" class="theme-text">
                         A visual journey through our most cherished creations. Each cake is a masterpiece crafted for special moments.
                     </p>
                     <div class="gallery-grid" id="galleryGrid">
@@ -921,7 +1298,7 @@
                         <ul>
                             <li>50% NON-REFUNDABLE DEPOSIT IS REQUIRED AT TIME OF BOOKING!</li>
                             <li>REMAINING BALANCE IS TO BE PAID PRIOR TO PICKUP OR CASH ONLY AT PICKUP!</li>
-                            <li>NO CHANGES CAN BE MADE TO YOUR ORDER WITHIN 72 HOURS OF PICKUP!</li>
+                            <li>NO CHANGES CAN BE MADE TO YOUR ORDER ONCE DEPOSIT IS SENT!</li>
                         </ul>
                     </div>
                     
@@ -974,7 +1351,7 @@
                             <!-- Step 1: Flavor -->
                             <div class="form-step active" data-step="1">
                                 <h3 class="step-title">Choose Your Flavor</h3>
-                                <p style="text-align: center; margin-bottom: 30px; color: var(--text-secondary);">Select your favorite cake flavor from our artisan collection</p>
+                                <p style="text-align: center; margin-bottom: 30px; font-family: 'Cormorant Garamond', serif;" class="theme-text">Select your favorite cake flavor from our artisan collection</p>
                                 <div class="flavor-options" id="orderFlavors">
                                     <!-- Flavors populated by JS -->
                                 </div>
@@ -987,7 +1364,7 @@
                             <!-- Step 2: Size -->
                             <div class="form-step" data-step="2">
                                 <h3 class="step-title">Select Size & Style</h3>
-                                <p style="text-align: center; margin-bottom: 30px; color: var(--text-secondary);">Choose the perfect size and shape for your occasion</p>
+                                <p style="text-align: center; margin-bottom: 30px; font-family: 'Cormorant Garamond', serif;" class="theme-text">Choose the perfect size and shape for your occasion</p>
                                 <div class="size-options" id="orderSizes">
                                     <!-- Size options populated by JS -->
                                 </div>
@@ -1000,7 +1377,7 @@
                             <!-- Step 3: Inspiration -->
                             <div class="form-step" data-step="3">
                                 <h3 class="step-title">Inspiration Photos</h3>
-                                <p style="text-align: center; margin-bottom: 30px; color: var(--text-secondary);">Help us visualize your dream cake (optional)</p>
+                                <p style="text-align: center; margin-bottom: 30px; font-family: 'Cormorant Garamond', serif;" class="theme-text">Help us visualize your dream cake (optional)</p>
                                 
                                 <div class="upload-area" id="uploadArea">
                                     <div class="upload-icon">
@@ -1008,7 +1385,7 @@
                                     </div>
                                     <h4>Upload Inspiration Photos</h4>
                                     <p>Click to browse photos from your device</p>
-                                    <p style="font-size: 0.9rem; color: var(--text-secondary); margin-top: 10px;">Max 5 images, 5MB each</p>
+                                    <p style="font-size: 0.9rem; margin-top: 10px;" class="theme-text">Max 5 images, 5MB each</p>
                                     <input type="file" id="fileInput" name="Inspiration Photos" accept="image/*" multiple style="display: none;">
                                 </div>
                                 
@@ -1029,14 +1406,14 @@
                             <!-- Step 4: Terms -->
                             <div class="form-step" data-step="4">
                                 <h3 class="step-title">Terms & Conditions</h3>
-                                <p style="text-align: center; margin-bottom: 30px; color: var(--text-secondary);">Please review our policies before proceeding</p>
+                                <p style="text-align: center; margin-bottom: 30px; font-family: 'Cormorant Garamond', serif;" class="theme-text">Please review our policies before proceeding</p>
                                 
                                 <div class="terms-box">
                                     <h4>Ordering Policies</h4>
                                     <ul>
                                         <li>A 50% non-refundable deposit is required at time of booking</li>
                                         <li>Remaining balance must be paid prior to pickup or cash only at pickup</li>
-                                        <li>No changes can be made to your order within 72 hours of pickup</li>
+                                        <li>No changes can be made to your order once deposit is sent</li>
                                         <li>Please arrive at your scheduled pickup time to avoid a $20 inconvenience fee</li>
                                         <li>We are not responsible for damage during transportation after pickup</li>
                                         <li>All cakes are made with buttercream - keep out of hot environments</li>
@@ -1059,7 +1436,7 @@
                             <!-- Step 5: Contact -->
                             <div class="form-step" data-step="5">
                                 <h3 class="step-title">Contact Information</h3>
-                                <p style="text-align: center; margin-bottom: 30px; color: var(--text-secondary);">We'll contact you to confirm details and request deposit</p>
+                                <p style="text-align: center; margin-bottom: 30px; font-family: 'Cormorant Garamond', serif;" class="theme-text">We'll contact you to confirm details and request deposit</p>
                                 
                                 <div class="form-group">
                                     <input type="text" class="form-control" id="customerName" name="Full Name" placeholder="Full Name *" required>
@@ -1075,7 +1452,7 @@
                                 
                                 <div class="form-group">
                                     <input type="date" class="form-control" id="pickupDate" name="Pickup Date" required>
-                                    <small style="display: block; margin-top: 5px; color: var(--text-secondary);">Please allow 3-5 days for custom orders</small>
+                                    <small style="display: block; margin-top: 5px;" class="theme-text">Please allow 3-5 days for custom orders</small>
                                 </div>
                                 
                                 <div class="form-group">
@@ -1099,7 +1476,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">Ana's Sweet Spot</div>
-                <p style="max-width: 600px; margin: 0 auto 20px; color: var(--text-secondary);">Creating beautiful, delicious custom cakes for all your special occasions.</p>
+                <p style="max-width: 600px; margin: 0 auto 20px; font-family: 'Cormorant Garamond', serif;" class="theme-text">Creating beautiful, delicious custom cakes for all your special occasions.</p>
                 
                 <div class="social-icons">
                     <a href="#"><i class="fab fa-instagram"></i></a>
@@ -1108,7 +1485,7 @@
                     <a href="#"><i class="fas fa-envelope"></i></a>
                 </div>
                 
-                <div style="color: var(--text-secondary); margin-top: 20px;">
+                <div style="margin-top: 20px;" class="theme-text">
                     <p><i class="fas fa-phone" style="margin-right: 8px;"></i> (770) 765-5783</p>
                     <p><i class="fas fa-clock" style="margin-right: 8px;"></i> Custom orders require 3-5 days notice</p>
                 </div>
@@ -1284,7 +1661,7 @@
                 priceCard.innerHTML = `
                     <h4>${cupcake.name}</h4>
                     <div class="price">${cupcake.price}</div>
-                    <p style="color: var(--text-secondary); margin-bottom: 10px;">${cupcake.description}</p>
+                    <p style="margin-bottom: 10px;" class="theme-text">${cupcake.description}</p>
                     ${cupcake.image ? `<div class="price-image" style="background-image: url('${cupcake.image}')"></div>` : ''}
                 `;
                 cupcakePricingGrid.appendChild(priceCard);
@@ -1310,7 +1687,7 @@
                 option.dataset.value = flavor.name;
                 option.innerHTML = `
                     <h4>${flavor.name}</h4>
-                    <p style="font-size: 0.9rem; color: var(--text-secondary);">${flavor.description}</p>
+                    <p style="font-size: 0.9rem;" class="theme-text">${flavor.description}</p>
                 `;
                 option.addEventListener('click', () => selectOption(option, 'flavor'));
                 flavorOptions.appendChild(option);
@@ -1325,7 +1702,7 @@
                 option.dataset.price = cake.price;
                 option.innerHTML = `
                     <h4>${cake.name}</h4>
-                    <div style="color: var(--deep-rose); font-weight: bold; margin: 10px 0;">${cake.price}</div>
+                    <div style="color: var(--deep-rose); font-weight: 600; margin: 10px 0;">${cake.price}</div>
                 `;
                 option.addEventListener('click', () => selectOption(option, 'size'));
                 sizeOptions.appendChild(option);
@@ -1339,8 +1716,8 @@
                 option.dataset.price = cupcake.price;
                 option.innerHTML = `
                     <h4>${cupcake.name}</h4>
-                    <div style="color: var(--deep-rose); font-weight: bold; margin: 10px 0;">${cupcake.price}</div>
-                    <p style="font-size: 0.9rem; color: var(--text-secondary);">${cupcake.description}</p>
+                    <div style="color: var(--deep-rose); font-weight: 600; margin: 10px 0;">${cupcake.price}</div>
+                    <p style="font-size: 0.9rem;" class="theme-text">${cupcake.description}</p>
                 `;
                 option.addEventListener('click', () => selectOption(option, 'size'));
                 sizeOptions.appendChild(option);
@@ -1410,7 +1787,7 @@
                         img.style.backgroundSize = 'cover';
                         img.style.backgroundPosition = 'center';
                         img.style.borderRadius = '8px';
-                        img.style.border = '2px solid var(--dusty-rose)';
+                        img.style.border = '1px solid var(--dusty-rose)';
                         imagePreviews.appendChild(img);
                     };
                     reader.readAsDataURL(file);
@@ -1501,15 +1878,25 @@
                 if (document.body.classList.contains('light-theme')) {
                     // Switch to dark theme
                     document.body.classList.remove('light-theme');
-                    themeIcon.className = 'fas fa-moon';
-                    document.title = "Ana's Sweet Spot | Artisan Bakery - Dark";
+                    document.body.classList.add('dark-theme');
+                    themeIcon.className = 'fas fa-sun';
+                    localStorage.setItem('theme', 'dark');
                 } else {
                     // Switch to light theme
+                    document.body.classList.remove('dark-theme');
                     document.body.classList.add('light-theme');
-                    themeIcon.className = 'fas fa-sun';
-                    document.title = "Ana's Sweet Spot | Artisan Bakery - Light";
+                    themeIcon.className = 'fas fa-moon';
+                    localStorage.setItem('theme', 'light');
                 }
             });
+            
+            // Check for saved theme preference
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.body.classList.remove('light-theme');
+                document.body.classList.add('dark-theme');
+                themeIcon.className = 'fas fa-sun';
+            }
         }
 
         // Helper Functions
@@ -1592,73 +1979,5 @@
             navigateToStep(1);
         }
     </script>
-
-    <style>
-        /* Light Theme Styles (Toggle) */
-        body.light-theme {
-            background-color: #fffaf3;
-            color: #555;
-        }
-        
-        body.light-theme .page-background {
-            background-image: 
-                linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.9)),
-                url('https://www.dropbox.com/scl/fi/ofyspzth9gl99x2kk97bh/IMG_7155.jpeg?rlkey=dp20cws62yyci0jpsa65qwx0z&st=pbetxe8a&raw=1');
-        }
-        
-        body.light-theme h1,
-        body.light-theme h2,
-        body.light-theme h3,
-        body.light-theme .logo {
-            color: #6d4c41;
-        }
-        
-        body.light-theme .hero {
-            background-color: rgba(255, 255, 255, 0.85);
-            border: 1px solid rgba(232, 180, 188, 0.3);
-        }
-        
-        body.light-theme header {
-            background-color: rgba(255, 255, 255, 0.95);
-            border-bottom: 1px solid rgba(232, 180, 188, 0.3);
-        }
-        
-        body.light-theme nav a {
-            color: #6d4c41;
-        }
-        
-        body.light-theme .flavor-card,
-        body.light-theme .price-card,
-        body.light-theme .order-container,
-        body.light-theme .policy-box,
-        body.light-theme .terms-box {
-            background: white;
-            border-color: rgba(232, 180, 188, 0.3);
-        }
-        
-        body.light-theme .form-control {
-            background-color: white;
-            color: #555;
-            border-color: rgba(232, 180, 188, 0.5);
-        }
-        
-        body.light-theme footer {
-            background-color: rgba(255, 255, 255, 0.95);
-            border-top: 1px solid rgba(232, 180, 188, 0.3);
-        }
-        
-        body.light-theme .copyright {
-            color: #888;
-        }
-        
-        body.light-theme .theme-toggle {
-            background-color: white;
-            border-color: rgba(232, 180, 188, 0.3);
-        }
-        
-        body.light-theme .theme-toggle i {
-            color: #6d4c41;
-        }
-    </style>
 </body>
 </html>
