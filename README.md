@@ -3,21 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ana's Sweet Spot | Artisan Bakery</title>
+    <title>Ana's Sweet Spot | Artisan Bakery - Dark</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Quicksand:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Base Styles */
+        /* Dark Theme Base Styles */
         :root {
-            --soft-pink: #ffebf3;
+            --dark-bg: #121212;
+            --darker-bg: #0a0a0a;
+            --card-bg: #1e1e1e;
+            --card-border: #333;
+            --text-primary: #f5f5f5;
+            --text-secondary: #b0b0b0;
+            --text-accent: #d4af37;
+            --soft-pink: #ff7eb3;
             --dusty-rose: #e8b4bc;
             --deep-rose: #d48a97;
-            --cream: #fffaf3;
-            --chocolate: #6d4c41;
+            --cream: #2a2a2a;
+            --chocolate: #c19a6b;
             --gold: #d4af37;
             --light-gold: #f4e4b5;
+            --accent-dark: #8b5a2b;
+            --accent-light: #e8b4bc;
+            --shadow-color: rgba(0, 0, 0, 0.5);
+            --shadow-light: rgba(0, 0, 0, 0.3);
         }
         
         * {
@@ -29,8 +40,8 @@
         body {
             font-family: 'Quicksand', sans-serif;
             font-weight: 300;
-            background-color: var(--cream);
-            color: #555;
+            background-color: var(--dark-bg);
+            color: var(--text-primary);
             line-height: 1.7;
             overflow-x: hidden;
         }
@@ -38,7 +49,7 @@
         h1, h2, h3, .logo {
             font-family: 'Dancing Script', cursive;
             font-weight: 600;
-            color: var(--chocolate);
+            color: var(--gold);
         }
         
         .container {
@@ -48,20 +59,20 @@
             padding: 0 20px;
         }
         
-        /* Background - UPDATED WITH NEW IMAGE AND MORE VISIBLE */
+        /* Background - Darker Version */
         .page-background {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('https://www.dropbox.com/scl/fi/ofyspzth9gl99x2kk97bh/IMG_7155.jpeg?rlkey=dp20cws62yyci0jpsa65qwx0z&st=pbetxe8a&raw=1');
+            background-image: 
+                linear-gradient(rgba(10, 10, 10, 0.85), rgba(10, 10, 10, 0.9)),
+                url('https://www.dropbox.com/scl/fi/ofyspzth9gl99x2kk97bh/IMG_7155.jpeg?rlkey=dp20cws62yyci0jpsa65qwx0z&st=pbetxe8a&raw=1');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
-            opacity: 0.4;
             z-index: -1;
-            filter: brightness(1.05);
         }
         
         /* Add overlay to make text more readable */
@@ -72,23 +83,25 @@
         
         /* Make hero section stand out more */
         .hero {
-            background-color: rgba(255, 255, 255, 0.85);
+            background-color: rgba(30, 30, 30, 0.85);
             border-radius: 20px;
             margin: 20px;
             padding: 60px 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 30px var(--shadow-color);
+            border: 1px solid var(--card-border);
         }
         
         /* Navigation */
         header {
-            background-color: rgba(255, 255, 255, 0.95);
+            background-color: rgba(18, 18, 18, 0.95);
             backdrop-filter: blur(10px);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
             position: fixed;
             top: 0;
             width: 100%;
             z-index: 1000;
             padding: 15px 0;
+            border-bottom: 1px solid var(--card-border);
         }
         
         .header-content {
@@ -99,12 +112,12 @@
         
         .logo {
             font-size: 2.8rem;
-            color: var(--deep-rose);
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            color: var(--gold);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
         
         .logo span {
-            color: var(--gold);
+            color: var(--deep-rose);
         }
         
         nav ul {
@@ -115,7 +128,7 @@
         
         nav a {
             text-decoration: none;
-            color: var(--chocolate);
+            color: var(--text-primary);
             font-family: 'Playfair Display', serif;
             font-weight: 500;
             font-size: 1.1rem;
@@ -127,12 +140,12 @@
         
         nav a:hover {
             color: var(--deep-rose);
-            background-color: rgba(232, 180, 188, 0.1);
+            background-color: rgba(212, 138, 151, 0.15);
         }
         
         nav a.active {
             color: var(--deep-rose);
-            background-color: rgba(232, 180, 188, 0.15);
+            background-color: rgba(212, 138, 151, 0.2);
         }
         
         nav a.active:after {
@@ -172,22 +185,22 @@
         .hero h1 {
             font-size: 4.5rem;
             margin-bottom: 20px;
-            color: var(--deep-rose);
-            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.1);
+            color: var(--gold);
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
         }
         
         .hero p {
             font-size: 1.3rem;
             max-width: 700px;
             margin: 0 auto 40px;
-            color: #666;
+            color: var(--text-secondary);
             font-family: 'Playfair Display', serif;
             font-style: italic;
         }
         
         .cta-button {
             display: inline-block;
-            background: linear-gradient(135deg, var(--deep-rose), var(--dusty-rose));
+            background: linear-gradient(135deg, var(--deep-rose), var(--accent-dark));
             color: white;
             padding: 16px 45px;
             border-radius: 30px;
@@ -203,7 +216,8 @@
         
         .cta-button:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(212, 138, 151, 0.4);
+            box-shadow: 0 8px 25px rgba(212, 138, 151, 0.5);
+            background: linear-gradient(135deg, var(--dusty-rose), var(--deep-rose));
         }
         
         /* Menu Page */
@@ -238,17 +252,18 @@
         }
         
         .flavor-card {
-            background: white;
+            background: var(--card-bg);
             border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 10px 30px var(--shadow-color);
             transition: all 0.4s ease;
-            border: 1px solid rgba(232, 180, 188, 0.3);
+            border: 1px solid var(--card-border);
         }
         
         .flavor-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+            border-color: var(--deep-rose);
         }
         
         .flavor-content {
@@ -259,6 +274,10 @@
             font-size: 1.8rem;
             margin-bottom: 10px;
             color: var(--deep-rose);
+        }
+        
+        .flavor-content p {
+            color: var(--text-secondary);
         }
         
         /* Pricing Section */
@@ -284,12 +303,12 @@
         }
         
         .price-card {
-            background: white;
+            background: var(--card-bg);
             border-radius: 15px;
             padding: 30px 25px;
             text-align: center;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
-            border: 1px solid rgba(212, 175, 55, 0.2);
+            box-shadow: 0 8px 25px var(--shadow-color);
+            border: 1px solid var(--card-border);
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
@@ -307,13 +326,14 @@
         
         .price-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+            border-color: var(--gold);
         }
         
         .price-card h4 {
             font-size: 1.4rem;
             margin-bottom: 15px;
-            color: var(--chocolate);
+            color: var(--text-primary);
             font-family: 'Playfair Display', serif;
         }
         
@@ -331,8 +351,8 @@
             background-position: center;
             border-radius: 10px;
             margin-top: 15px;
-            border: 2px solid rgba(255, 255, 255, 0.8);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 15px var(--shadow-color);
         }
         
         /* Gallery Section */
@@ -353,33 +373,36 @@
             height: 300px;
             background-size: cover;
             background-position: center;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 25px var(--shadow-color);
             transition: all 0.4s ease;
             position: relative;
             cursor: pointer;
+            border: 2px solid rgba(255, 255, 255, 0.05);
         }
         
         .gallery-item:hover {
             transform: scale(1.03);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
+            border-color: var(--deep-rose);
         }
         
         /* Policies Section */
         .policies-section {
             margin: 100px 0;
-            background-color: rgba(255, 255, 255, 0.9);
+            background-color: var(--card-bg);
             border-radius: 20px;
             padding: 50px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 10px 30px var(--shadow-color);
+            border: 1px solid var(--card-border);
         }
         
         .policy-box {
-            background: white;
+            background: rgba(40, 40, 40, 0.7);
             border-radius: 15px;
             padding: 30px;
             margin: 30px 0;
             border-left: 5px solid var(--deep-rose);
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 5px 20px var(--shadow-light);
         }
         
         .policy-box h3 {
@@ -395,29 +418,31 @@
         
         .policy-box li {
             margin-bottom: 12px;
-            color: #555;
+            color: var(--text-secondary);
         }
         
         .warning {
-            background-color: #fff8e1;
+            background-color: rgba(255, 193, 7, 0.1);
             border-left: 5px solid #ffc107;
             padding: 20px;
             margin: 20px 0;
             border-radius: 0 10px 10px 0;
+            color: #ffd54f;
         }
         
         /* Order Form - Multi Step */
         .order-container {
             max-width: 800px;
             margin: 0 auto;
-            background: white;
+            background: var(--card-bg);
             border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 15px 40px var(--shadow-color);
+            border: 1px solid var(--card-border);
         }
         
         .form-header {
-            background: linear-gradient(135deg, var(--deep-rose), var(--dusty-rose));
+            background: linear-gradient(135deg, var(--accent-dark), var(--deep-rose));
             color: white;
             padding: 25px;
             text-align: center;
@@ -440,12 +465,13 @@
             width: 35px;
             height: 35px;
             border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.3);
+            background-color: rgba(255, 255, 255, 0.2);
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: bold;
             transition: all 0.3s ease;
+            color: white;
         }
         
         .step.active {
@@ -456,7 +482,7 @@
         
         .step.completed {
             background-color: var(--light-gold);
-            color: var(--chocolate);
+            color: var(--darker-bg);
         }
         
         .form-body {
@@ -475,7 +501,7 @@
         .step-title {
             font-size: 2rem;
             margin-bottom: 25px;
-            color: var(--chocolate);
+            color: var(--gold);
             text-align: center;
             font-family: 'Dancing Script', cursive;
         }
@@ -488,23 +514,27 @@
         }
         
         .option-card {
-            border: 2px solid rgba(232, 180, 188, 0.3);
+            border: 2px solid var(--card-border);
             border-radius: 12px;
             padding: 20px;
             cursor: pointer;
             transition: all 0.3s ease;
             text-align: center;
+            background: rgba(40, 40, 40, 0.5);
+            color: var(--text-secondary);
         }
         
         .option-card:hover {
             border-color: var(--dusty-rose);
-            background-color: rgba(232, 180, 188, 0.05);
+            background-color: rgba(232, 180, 188, 0.1);
+            color: var(--text-primary);
         }
         
         .option-card.selected {
             border-color: var(--deep-rose);
-            background-color: rgba(232, 180, 188, 0.1);
-            box-shadow: 0 5px 15px rgba(212, 138, 151, 0.1);
+            background-color: rgba(232, 180, 188, 0.15);
+            box-shadow: 0 5px 15px rgba(212, 138, 151, 0.2);
+            color: var(--text-primary);
         }
         
         .option-card h4 {
@@ -521,11 +551,12 @@
             margin: 30px 0;
             cursor: pointer;
             transition: all 0.3s ease;
+            background: rgba(40, 40, 40, 0.3);
         }
         
         .upload-area:hover {
             border-color: var(--deep-rose);
-            background-color: rgba(232, 180, 188, 0.05);
+            background-color: rgba(232, 180, 188, 0.1);
         }
         
         .upload-icon {
@@ -546,13 +577,14 @@
         }
         
         .terms-box {
-            border: 1px solid rgba(232, 180, 188, 0.5);
+            border: 1px solid rgba(232, 180, 188, 0.3);
             border-radius: 12px;
             padding: 25px;
             margin: 30px 0;
             max-height: 300px;
             overflow-y: auto;
-            background-color: rgba(255, 250, 243, 0.5);
+            background-color: rgba(30, 30, 30, 0.8);
+            color: var(--text-secondary);
         }
         
         .terms-box h4 {
@@ -575,23 +607,27 @@
             align-items: center;
             gap: 10px;
             margin-top: 20px;
+            color: var(--text-secondary);
         }
         
         .form-control {
             width: 100%;
             padding: 15px;
-            border: 1px solid rgba(232, 180, 188, 0.5);
+            border: 1px solid var(--card-border);
             border-radius: 10px;
             font-size: 1rem;
             font-family: 'Quicksand', sans-serif;
             margin-bottom: 20px;
             transition: all 0.3s ease;
+            background-color: rgba(40, 40, 40, 0.7);
+            color: var(--text-primary);
         }
         
         .form-control:focus {
             outline: none;
             border-color: var(--deep-rose);
-            box-shadow: 0 0 0 3px rgba(212, 138, 151, 0.1);
+            box-shadow: 0 0 0 3px rgba(212, 138, 151, 0.2);
+            background-color: rgba(50, 50, 50, 0.7);
         }
         
         .form-navigation {
@@ -599,7 +635,7 @@
             justify-content: space-between;
             margin-top: 40px;
             padding-top: 30px;
-            border-top: 1px solid rgba(232, 180, 188, 0.3);
+            border-top: 1px solid var(--card-border);
         }
         
         .btn {
@@ -614,23 +650,24 @@
         }
         
         .btn-prev {
-            background-color: white;
+            background-color: rgba(40, 40, 40, 0.8);
             color: var(--deep-rose);
-            border: 1px solid var(--dusty-rose);
+            border: 1px solid var(--card-border);
         }
         
         .btn-next, .btn-submit {
-            background: linear-gradient(135deg, var(--deep-rose), var(--dusty-rose));
+            background: linear-gradient(135deg, var(--deep-rose), var(--accent-dark));
             color: white;
         }
         
         .btn-prev:hover {
-            background-color: rgba(232, 180, 188, 0.1);
+            background-color: rgba(232, 180, 188, 0.2);
+            border-color: var(--dusty-rose);
         }
         
         .btn-next:hover, .btn-submit:hover {
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(212, 138, 151, 0.3);
+            box-shadow: 0 5px 15px rgba(212, 138, 151, 0.4);
         }
         
         .btn:disabled {
@@ -641,10 +678,10 @@
         
         /* Footer */
         footer {
-            background-color: rgba(255, 255, 255, 0.95);
+            background-color: rgba(18, 18, 18, 0.95);
             padding: 40px 0 20px;
             text-align: center;
-            border-top: 1px solid rgba(232, 180, 188, 0.3);
+            border-top: 1px solid var(--card-border);
         }
         
         .footer-content {
@@ -654,7 +691,7 @@
         
         .footer-logo {
             font-size: 2.5rem;
-            color: var(--deep-rose);
+            color: var(--gold);
             margin-bottom: 20px;
         }
         
@@ -666,7 +703,7 @@
         }
         
         .social-icons a {
-            color: var(--chocolate);
+            color: var(--text-primary);
             font-size: 1.3rem;
             transition: all 0.3s ease;
         }
@@ -679,9 +716,38 @@
         .copyright {
             margin-top: 30px;
             padding-top: 20px;
-            border-top: 1px solid rgba(232, 180, 188, 0.3);
-            color: #888;
+            border-top: 1px solid var(--card-border);
+            color: var(--text-secondary);
             font-size: 0.9rem;
+        }
+        
+        /* Theme Toggle Button */
+        .theme-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--card-bg);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 15px var(--shadow-color);
+            z-index: 1001;
+            border: 1px solid var(--card-border);
+            transition: all 0.3s ease;
+        }
+        
+        .theme-toggle:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+        }
+        
+        .theme-toggle i {
+            font-size: 1.5rem;
+            color: var(--gold);
         }
         
         /* Responsive */
@@ -752,8 +818,13 @@
     </style>
 </head>
 <body>
-    <!-- Background - UPDATED -->
+    <!-- Background - Dark Theme -->
     <div class="page-background"></div>
+    
+    <!-- Theme Toggle -->
+    <div class="theme-toggle" id="themeToggle">
+        <i class="fas fa-moon"></i>
+    </div>
     
     <!-- Header -->
     <header>
@@ -787,18 +858,18 @@
                     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-top: 40px;">
                         <div>
                             <div style="font-size: 3rem; color: var(--deep-rose); margin-bottom: 15px;">🎂</div>
-                            <h3 style="font-size: 1.8rem;">Custom Designs</h3>
-                            <p>Each cake is uniquely crafted to match your vision and occasion.</p>
+                            <h3 style="font-size: 1.8rem; color: var(--gold);">Custom Designs</h3>
+                            <p style="color: var(--text-secondary);">Each cake is uniquely crafted to match your vision and occasion.</p>
                         </div>
                         <div>
                             <div style="font-size: 3rem; color: var(--deep-rose); margin-bottom: 15px;">👩‍🍳</div>
-                            <h3 style="font-size: 1.8rem;">Artisan Quality</h3>
-                            <p>Made from scratch with premium ingredients and attention to detail.</p>
+                            <h3 style="font-size: 1.8rem; color: var(--gold);">Artisan Quality</h3>
+                            <p style="color: var(--text-secondary);">Made from scratch with premium ingredients and attention to detail.</p>
                         </div>
                         <div>
                             <div style="font-size: 3rem; color: var(--deep-rose); margin-bottom: 15px;">💝</div>
-                            <h3 style="font-size: 1.8rem;">Made with Love</h3>
-                            <p>Every creation is infused with care and passion for the craft.</p>
+                            <h3 style="font-size: 1.8rem; color: var(--gold);">Made with Love</h3>
+                            <p style="color: var(--text-secondary);">Every creation is infused with care and passion for the craft.</p>
                         </div>
                     </div>
                 </div>
@@ -833,7 +904,7 @@
                 <!-- Gallery Section -->
                 <div class="gallery-section">
                     <h2 class="page-title">Our Gallery</h2>
-                    <p style="text-align: center; font-size: 1.2rem; max-width: 800px; margin: 0 auto 50px; color: #666; font-family: 'Playfair Display', serif;">
+                    <p style="text-align: center; font-size: 1.2rem; max-width: 800px; margin: 0 auto 50px; color: var(--text-secondary); font-family: 'Playfair Display', serif;">
                         A visual journey through our most cherished creations. Each cake is a masterpiece crafted for special moments.
                     </p>
                     <div class="gallery-grid" id="galleryGrid">
@@ -903,7 +974,7 @@
                             <!-- Step 1: Flavor -->
                             <div class="form-step active" data-step="1">
                                 <h3 class="step-title">Choose Your Flavor</h3>
-                                <p style="text-align: center; margin-bottom: 30px; color: #666;">Select your favorite cake flavor from our artisan collection</p>
+                                <p style="text-align: center; margin-bottom: 30px; color: var(--text-secondary);">Select your favorite cake flavor from our artisan collection</p>
                                 <div class="flavor-options" id="orderFlavors">
                                     <!-- Flavors populated by JS -->
                                 </div>
@@ -916,7 +987,7 @@
                             <!-- Step 2: Size -->
                             <div class="form-step" data-step="2">
                                 <h3 class="step-title">Select Size & Style</h3>
-                                <p style="text-align: center; margin-bottom: 30px; color: #666;">Choose the perfect size and shape for your occasion</p>
+                                <p style="text-align: center; margin-bottom: 30px; color: var(--text-secondary);">Choose the perfect size and shape for your occasion</p>
                                 <div class="size-options" id="orderSizes">
                                     <!-- Size options populated by JS -->
                                 </div>
@@ -929,7 +1000,7 @@
                             <!-- Step 3: Inspiration -->
                             <div class="form-step" data-step="3">
                                 <h3 class="step-title">Inspiration Photos</h3>
-                                <p style="text-align: center; margin-bottom: 30px; color: #666;">Help us visualize your dream cake (optional)</p>
+                                <p style="text-align: center; margin-bottom: 30px; color: var(--text-secondary);">Help us visualize your dream cake (optional)</p>
                                 
                                 <div class="upload-area" id="uploadArea">
                                     <div class="upload-icon">
@@ -937,7 +1008,7 @@
                                     </div>
                                     <h4>Upload Inspiration Photos</h4>
                                     <p>Click to browse photos from your device</p>
-                                    <p style="font-size: 0.9rem; color: #888; margin-top: 10px;">Max 5 images, 5MB each</p>
+                                    <p style="font-size: 0.9rem; color: var(--text-secondary); margin-top: 10px;">Max 5 images, 5MB each</p>
                                     <input type="file" id="fileInput" name="Inspiration Photos" accept="image/*" multiple style="display: none;">
                                 </div>
                                 
@@ -958,7 +1029,7 @@
                             <!-- Step 4: Terms -->
                             <div class="form-step" data-step="4">
                                 <h3 class="step-title">Terms & Conditions</h3>
-                                <p style="text-align: center; margin-bottom: 30px; color: #666;">Please review our policies before proceeding</p>
+                                <p style="text-align: center; margin-bottom: 30px; color: var(--text-secondary);">Please review our policies before proceeding</p>
                                 
                                 <div class="terms-box">
                                     <h4>Ordering Policies</h4>
@@ -988,7 +1059,7 @@
                             <!-- Step 5: Contact -->
                             <div class="form-step" data-step="5">
                                 <h3 class="step-title">Contact Information</h3>
-                                <p style="text-align: center; margin-bottom: 30px; color: #666;">We'll contact you to confirm details and request deposit</p>
+                                <p style="text-align: center; margin-bottom: 30px; color: var(--text-secondary);">We'll contact you to confirm details and request deposit</p>
                                 
                                 <div class="form-group">
                                     <input type="text" class="form-control" id="customerName" name="Full Name" placeholder="Full Name *" required>
@@ -1004,7 +1075,7 @@
                                 
                                 <div class="form-group">
                                     <input type="date" class="form-control" id="pickupDate" name="Pickup Date" required>
-                                    <small style="display: block; margin-top: 5px; color: #888;">Please allow 3-5 days for custom orders</small>
+                                    <small style="display: block; margin-top: 5px; color: var(--text-secondary);">Please allow 3-5 days for custom orders</small>
                                 </div>
                                 
                                 <div class="form-group">
@@ -1028,7 +1099,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">Ana's Sweet Spot</div>
-                <p style="max-width: 600px; margin: 0 auto 20px; color: #666;">Creating beautiful, delicious custom cakes for all your special occasions.</p>
+                <p style="max-width: 600px; margin: 0 auto 20px; color: var(--text-secondary);">Creating beautiful, delicious custom cakes for all your special occasions.</p>
                 
                 <div class="social-icons">
                     <a href="#"><i class="fab fa-instagram"></i></a>
@@ -1037,7 +1108,7 @@
                     <a href="#"><i class="fas fa-envelope"></i></a>
                 </div>
                 
-                <div style="color: #888; margin-top: 20px;">
+                <div style="color: var(--text-secondary); margin-top: 20px;">
                     <p><i class="fas fa-phone" style="margin-right: 8px;"></i> (770) 765-5783</p>
                     <p><i class="fas fa-clock" style="margin-right: 8px;"></i> Custom orders require 3-5 days notice</p>
                 </div>
@@ -1171,6 +1242,9 @@
             
             // Setup form validation
             setupFormValidation();
+            
+            // Setup theme toggle
+            setupThemeToggle();
         });
 
         // Populate Home Page
@@ -1210,7 +1284,7 @@
                 priceCard.innerHTML = `
                     <h4>${cupcake.name}</h4>
                     <div class="price">${cupcake.price}</div>
-                    <p style="color: #888; margin-bottom: 10px;">${cupcake.description}</p>
+                    <p style="color: var(--text-secondary); margin-bottom: 10px;">${cupcake.description}</p>
                     ${cupcake.image ? `<div class="price-image" style="background-image: url('${cupcake.image}')"></div>` : ''}
                 `;
                 cupcakePricingGrid.appendChild(priceCard);
@@ -1236,7 +1310,7 @@
                 option.dataset.value = flavor.name;
                 option.innerHTML = `
                     <h4>${flavor.name}</h4>
-                    <p style="font-size: 0.9rem; color: #666;">${flavor.description}</p>
+                    <p style="font-size: 0.9rem; color: var(--text-secondary);">${flavor.description}</p>
                 `;
                 option.addEventListener('click', () => selectOption(option, 'flavor'));
                 flavorOptions.appendChild(option);
@@ -1266,7 +1340,7 @@
                 option.innerHTML = `
                     <h4>${cupcake.name}</h4>
                     <div style="color: var(--deep-rose); font-weight: bold; margin: 10px 0;">${cupcake.price}</div>
-                    <p style="font-size: 0.9rem; color: #666;">${cupcake.description}</p>
+                    <p style="font-size: 0.9rem; color: var(--text-secondary);">${cupcake.description}</p>
                 `;
                 option.addEventListener('click', () => selectOption(option, 'size'));
                 sizeOptions.appendChild(option);
@@ -1417,6 +1491,27 @@
             });
         }
 
+        // Setup Theme Toggle
+        function setupThemeToggle() {
+            const themeToggle = document.getElementById('themeToggle');
+            const themeIcon = themeToggle.querySelector('i');
+            
+            themeToggle.addEventListener('click', function() {
+                // Toggle between dark and light theme
+                if (document.body.classList.contains('light-theme')) {
+                    // Switch to dark theme
+                    document.body.classList.remove('light-theme');
+                    themeIcon.className = 'fas fa-moon';
+                    document.title = "Ana's Sweet Spot | Artisan Bakery - Dark";
+                } else {
+                    // Switch to light theme
+                    document.body.classList.add('light-theme');
+                    themeIcon.className = 'fas fa-sun';
+                    document.title = "Ana's Sweet Spot | Artisan Bakery - Light";
+                }
+            });
+        }
+
         // Helper Functions
         function selectOption(element, type) {
             // Remove selected class from all options of this type
@@ -1497,5 +1592,73 @@
             navigateToStep(1);
         }
     </script>
+
+    <style>
+        /* Light Theme Styles (Toggle) */
+        body.light-theme {
+            background-color: #fffaf3;
+            color: #555;
+        }
+        
+        body.light-theme .page-background {
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.9)),
+                url('https://www.dropbox.com/scl/fi/ofyspzth9gl99x2kk97bh/IMG_7155.jpeg?rlkey=dp20cws62yyci0jpsa65qwx0z&st=pbetxe8a&raw=1');
+        }
+        
+        body.light-theme h1,
+        body.light-theme h2,
+        body.light-theme h3,
+        body.light-theme .logo {
+            color: #6d4c41;
+        }
+        
+        body.light-theme .hero {
+            background-color: rgba(255, 255, 255, 0.85);
+            border: 1px solid rgba(232, 180, 188, 0.3);
+        }
+        
+        body.light-theme header {
+            background-color: rgba(255, 255, 255, 0.95);
+            border-bottom: 1px solid rgba(232, 180, 188, 0.3);
+        }
+        
+        body.light-theme nav a {
+            color: #6d4c41;
+        }
+        
+        body.light-theme .flavor-card,
+        body.light-theme .price-card,
+        body.light-theme .order-container,
+        body.light-theme .policy-box,
+        body.light-theme .terms-box {
+            background: white;
+            border-color: rgba(232, 180, 188, 0.3);
+        }
+        
+        body.light-theme .form-control {
+            background-color: white;
+            color: #555;
+            border-color: rgba(232, 180, 188, 0.5);
+        }
+        
+        body.light-theme footer {
+            background-color: rgba(255, 255, 255, 0.95);
+            border-top: 1px solid rgba(232, 180, 188, 0.3);
+        }
+        
+        body.light-theme .copyright {
+            color: #888;
+        }
+        
+        body.light-theme .theme-toggle {
+            background-color: white;
+            border-color: rgba(232, 180, 188, 0.3);
+        }
+        
+        body.light-theme .theme-toggle i {
+            color: #6d4c41;
+        }
+    </style>
 </body>
 </html>
